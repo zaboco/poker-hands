@@ -10,3 +10,7 @@ module.exports = rules =
   pair: (hand=[]) ->
     | empty hand => false
     | _ => groups hand .2 is 1
+
+  two-pairs: (hand=[]) ->
+    | empty hand => false
+    | _ => groups hand .2 is 2
