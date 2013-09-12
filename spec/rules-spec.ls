@@ -4,5 +4,7 @@ that = it
 
 describe \rules ->
   describe \pair ->
-    that '11234 has a pair' ->
-      expect rules.pair [1 1 2 3 4] .to-be-truthy!
+    that 'void hand has no pair' ->
+      expect rules.pair void .to-be-falsy!
+    that 'empty hand has no pair' ->
+      expect rules.pair [] .to-be-falsy!

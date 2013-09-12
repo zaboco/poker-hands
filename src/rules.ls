@@ -1,2 +1,2 @@
 module.exports = rules =
-  pair: (hand) -> true
+  pair: (hand) -> false
