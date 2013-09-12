@@ -1,4 +1,4 @@
 global <<< require \prelude-ls
 
 module.exports =
-  dummy-method: -> true
+  winner: (...hands) -> hands.0
