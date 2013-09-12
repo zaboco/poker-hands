@@ -14,3 +14,11 @@ describe \rules ->
       expect rules.pair [1 2] .to-be-falsy!
     that '11 has pair' ->
       expect rules.pair [1 1] .to-be-truthy!
+    that '121 has pair' ->
+      expect rules.pair [1 2 1] .to-be-truthy!
+    that '122 has pair' ->
+      expect rules.pair [1 2 2] .to-be-truthy!
+    that '1122 does not have pair' ->
+      expect rules.pair [1 1 2 2] .to-be-falsy!
+    that '11122 does not have pair' ->
+      expect rules.pair [1 1 1 2 2] .to-be-truthy!
