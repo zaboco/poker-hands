@@ -1,0 +1,23 @@
+{
+  "name": "poker-hands",
+  "version": "0.0.1",
+  "description": "poker-hands module",
+  "dependencies": {
+    "prelude-ls": "~1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:zaboco/poker-hands.git"
+  },
+  "keywords": [
+    "util",
+    "library"
+  ],
+  "author": "Bogdan Zaharia",
+  "license": "MIT",
+  "readmeFilename": "README.md"
+}
