@@ -1,11 +1,23 @@
 global <<< require \prelude-ls
 require! './rules'
 
+figures = <[0 j q k a]>
+figures-to-values = lists-to-obj figures, [10 to 14]
+values-to-figures = lists-to-obj [10 to 14], figures
+
 from-string = (hand-string) ->
-  hand-string |> map (/ '') >> parse-int
+  hand-string |> (/ '') |> map to-int
+
+to-int = (card-sign) ->
+  | figures-to-values[card-sign]? => figures-to-values[card-sign]
+  | _ => parse-int card-sign
+
+from-int = (card-value) ->
+  | values-to-figures[card-value]? => values-to-figures[card-value]
+  | _ => card-value
 
 to-string = (hand-cards) ->
-  hand-cards * ''
+  hand-cards |> map from-int |> (* '')
 
 hands-by-rank = (hands) ->
   rules.all |> map filter _, hands
@@ -26,4 +38,4 @@ module.exports =
       |> highest-of-same-rank
       |> to-string
 
-module.exports <<< {highest-of-same-rank, sort-cards}
+module.exports <<< {highest-of-same-rank, sort-cards, from-string}

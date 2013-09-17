@@ -26,8 +26,8 @@ describe \poker-hands ->
       expect poker-hands.winner \12345 \11122 .to-equal \11122
     that '4of-a-kind > full' ->
       expect poker-hands.winner \33334 \11122 .to-equal \33334
-    that '4 of 9s > anything' ->
-      expect poker-hands.winner \99991 \11122 \23456 \33356 \44556 \77685 \14678 .to-equal \99991
+    that '4 of as > anything' ->
+      expect poker-hands.winner \aaaa1 \kkkkq \11122 \23456 \33356 \44556 \77685 \14678 .to-equal \aaaa1
 
   describe \highest-of-same-rank ->
     that '12349 is higher than 12346' ->
@@ -44,3 +44,9 @@ describe \poker-hands ->
       expect poker-hands.sort-cards [1 1 1 5 5] .to-equal [1 5]
     that 'sort-cards 28345 is ok' ->
       expect poker-hands.sort-cards [2 8 3 4 5] .to-equal [8 5 4 3 2]
+
+  describe \from-string ->
+    that 'can parse digits' ->
+      expect poker-hands.from-string \12345 .to-equal [1 2 3 4 5]
+    that 'can parse jqka' ->
+      expect poker-hands.from-string \0jqka .to-equal [10 11 12 13 14]
