@@ -44,6 +44,8 @@ describe \rules ->
       expect rules.straight [] .to-be-falsy!
     that '12345 is straight' ->
       expect rules.straight [1 2 3 4 5] .to-equal true
+    that '12346 is not straight' ->
+      expect rules.straight [1 2 3 4 6] .to-equal false
 
   describe \full-house ->
     that 'void hand has no full' ->
