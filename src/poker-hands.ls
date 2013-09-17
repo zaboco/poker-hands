@@ -2,7 +2,7 @@ global <<< require \prelude-ls
 require! './rules'
 
 from-string = (hand-string) ->
-  hand-string |> map (-> it / '' |> parse-int)
+  hand-string |> map (/ '') >> parse-int
 
 to-string = (hand-cards) ->
   hand-cards * ''
