@@ -36,11 +36,11 @@ describe \poker-hands ->
       expect poker-hands.highest-of [[2 2 3 4 5] [3 1 1 4 6]] .to-equal [2 2 3 4 5]
 
   describe \sort-cards ->
-    that 'sort-cards 31325 is 3' ->
+    that 'sort-cards 31325 is ok' ->
       expect poker-hands.sort-cards [3 1 3 2 5] .to-equal [3 5 2 1]
-    that 'sort-cards 13315 is 3' ->
+    that 'sort-cards 13315 is ok' ->
       expect poker-hands.sort-cards [1 3 3 1 5] .to-equal [3 1 5]
-    that 'sort-cards 11155 is 1' ->
+    that 'sort-cards 11155 is ok' ->
       expect poker-hands.sort-cards [1 1 1 5 5] .to-equal [1 5]
-    that 'sort-cards 28345 is 8' ->
+    that 'sort-cards 28345 is ok' ->
       expect poker-hands.sort-cards [2 8 3 4 5] .to-equal [8 5 4 3 2]
