@@ -21,7 +21,7 @@ describe \rules ->
     that '1122 does not have pair' ->
       expect rules.pair [1 1 2 2] .to-be-falsy!
     that '11122 does not have pair' ->
-      expect rules.pair [1 1 1 2 2] .to-be-truthy!
+      expect rules.pair [1 1 1 2 2] .to-be-falsy!
 
   describe \two-pairs ->
     that 'void hand has no pair' ->
