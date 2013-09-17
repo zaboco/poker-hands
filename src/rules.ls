@@ -17,6 +17,7 @@ module.exports = rules =
     (groups hand) === {3: 1, 1: 2}
 
   straight: (hand=[]) ->
+    hand |> scan1 (-)
 
   full-house: (hand=[]) ->
     (groups hand) === {3: 1, 2: 1}

@@ -42,6 +42,8 @@ describe \rules ->
       expect rules.straight void .to-be-falsy!
     that 'empty hand has no straigh' ->
       expect rules.straight [] .to-be-falsy!
+    that '12345 is straight' ->
+      expect rules.straight [1 2 3 4 5] .to-be-truthy!
 
   describe \full-house ->
     that 'void hand has no full' ->
