@@ -45,6 +45,16 @@ describe \rules ->
     that '11222 has not 3ok' ->
       expect rules.three-of-a-kind [1 1 2 2 2] .to-be-falsy!
 
+  describe \full-house ->
+    that 'void hand has no full' ->
+      expect rules.full-house void .to-be-falsy!
+    that 'empty hand has no full' ->
+      expect rules.full-house [] .to-be-falsy!
+    that '11133 has full' ->
+      expect rules.full-house [1 1 1 3 3] .to-be-truthy!
+    that '11123 has not full' ->
+      expect rules.full-house [1 1 1 2 3] .to-be-falsy!
+
   describe \four-of-a-kind ->
     that 'void hand has no 4ok' ->
       expect rules.four-of-a-kind void .to-be-falsy!
