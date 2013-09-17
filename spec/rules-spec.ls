@@ -44,3 +44,13 @@ describe \rules ->
       expect rules.three-of-a-kind [1 1 2 2 3] .to-be-falsy!
     that '11222 has not 3ok' ->
       expect rules.three-of-a-kind [1 1 2 2 2] .to-be-falsy!
+
+  describe \four-of-a-kind ->
+    that 'void hand has no 4ok' ->
+      expect rules.four-of-a-kind void .to-be-falsy!
+    that 'empty hand has no 4ok' ->
+      expect rules.four-of-a-kind [] .to-be-falsy!
+    that '11113 has 4ok' ->
+      expect rules.four-of-a-kind [1 1 1 1 3] .to-be-truthy!
+    that '11223 has not 4ok' ->
+      expect rules.four-of-a-kind [1 1 2 2 3] .to-be-falsy!
