@@ -37,6 +37,12 @@ describe \rules ->
     that '11222 has not 3ok' ->
       expect rules.three-of-a-kind [1 1 2 2 2] .to-be-falsy!
 
+  describe \straigh ->
+    that 'void hand has no straigh' ->
+      expect rules.straight void .to-be-falsy!
+    that 'empty hand has no straigh' ->
+      expect rules.straight [] .to-be-falsy!
+
   describe \full-house ->
     that 'void hand has no full' ->
       expect rules.full-house void .to-be-falsy!

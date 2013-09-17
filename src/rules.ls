@@ -9,8 +9,6 @@ groups = (a) ->
 module.exports = rules =
   pair: (hand=[]) ->
     (groups hand) === {2: 1, 1: 3}
-    # groups-of.2 is 1 and (groups-of.3 ? 0) is 0
-    # where groups-of = groups hand
 
   two-pairs: (hand=[]) ->
     groups hand .2 is 2
@@ -18,7 +16,7 @@ module.exports = rules =
   three-of-a-kind: (hand=[]) ->
     (groups hand) === {3: 1, 1: 2}
 
-  #straight: (hand=[]) ->
+  straight: (hand=[]) ->
 
   full-house: (hand=[]) ->
     (groups hand) === {3: 1, 2: 1}
