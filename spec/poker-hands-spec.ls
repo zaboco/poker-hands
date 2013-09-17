@@ -6,6 +6,16 @@ describe \poker-hands ->
   describe \winner ->
     that '12349 wins over 12346' ->
       expect poker-hands.winner \12349 \12346 .to-equal \12349
+    that 'one pair > high-card' ->
+      expect poker-hands.winner \12149 \12346 .to-equal \12149
+    that 'pair of 3 > pair of 1' ->
+      expect poker-hands.winner \11249 \31346 .to-equal \31346
+    that 'pair with 9 high card > pair with 5 high card' ->
+      expect poker-hands.winner \11249 \11345 .to-equal \11249
+    that '2pairs > pair' ->
+      expect poker-hands.winner \11229 \31346 .to-equal \11229
+    that '2pairs with 5 > 2pairs with 4' ->
+      expect poker-hands.winner \11225 \11224 .to-equal \11225
 
   describe \highest-of ->
     that '12349 is higher than 12346' ->
@@ -15,10 +25,10 @@ describe \poker-hands ->
 
   describe \value-of ->
     that 'value-of 31325 is 3' ->
-      expect poker-hands.value-of [3 1 3 2 5] .to-equal 3
+      expect poker-hands.value-of [3 1 3 2 5] .to-equal [3 5 2 1]
     that 'value-of 13315 is 3' ->
-      expect poker-hands.value-of [1 3 3 1 5] .to-equal 3
+      expect poker-hands.value-of [1 3 3 1 5] .to-equal [3 1 5]
     that 'value-of 11155 is 1' ->
-      expect poker-hands.value-of [1 1 1 5 5] .to-equal 1
+      expect poker-hands.value-of [1 1 1 5 5] .to-equal [1 5]
     that 'value-of 28345 is 8' ->
-      expect poker-hands.value-of [2 8 3 4 5] .to-equal 8
+      expect poker-hands.value-of [2 8 3 4 5] .to-equal [8 5 4 3 2]

@@ -17,7 +17,7 @@ highest-of = (hands=[]) -->
   hands |> sort-by value-of |> last
 
 value-of = (hand=[]) ->
-  hand |> sort |> sort-by rules.frequency _, hand |> last
+  hand |> sort |> sort-by rules.frequency _, hand |> unique |> reverse
 
 module.exports =
   winner: (...hands) ->
