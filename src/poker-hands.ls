@@ -25,7 +25,7 @@ module.exports =
       |> map from-string
       |> hands-distribution
       |> reverse
-      |> find (-> not empty it)
+      |> find (not) << empty
       |> highest-of
       |> to-string
 
