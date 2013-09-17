@@ -38,3 +38,5 @@ describe \rules ->
       expect rules.three-of-a-kind void .to-be-falsy!
     that 'empty hand has no 3ok' ->
       expect rules.three-of-a-kind [] .to-be-falsy!
+    that '11123 has 3ok' ->
+      expect rules.three-of-a-kind [1 1 1 2 3] .to-be-truthy!
