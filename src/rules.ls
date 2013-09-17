@@ -14,4 +14,4 @@ module.exports = rules =
     groups hand .2 is 2
 
   three-of-a-kind: (hand=[]) ->
-    groups hand .3 is 1
+    groups hand .3 is 1 and (groups hand .2 ? 0) is 0

@@ -42,3 +42,5 @@ describe \rules ->
       expect rules.three-of-a-kind [1 1 1 2 3] .to-be-truthy!
     that '11223 has not 3ok' ->
       expect rules.three-of-a-kind [1 1 2 2 3] .to-be-falsy!
+    that '11222 has not 3ok' ->
+      expect rules.three-of-a-kind [1 1 2 2 2] .to-be-falsy!
