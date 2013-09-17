@@ -1,10 +1,10 @@
 global <<< require \prelude-ls
 
 frequency = (el, list) -->
- list |> filter (is el) |> (.length)
+  list |> filter (is el) |> (.length)
 
 groups = (a) ->
- unique a |> count-by -> frequency it, a
+  unique a |> count-by -> frequency it, a
 
 _is-straight = (hand=[]) ->
   hand |> sort |> (.map (v, i) -> v - i) |> unique |> (.length) |> (is 1)
@@ -33,3 +33,4 @@ rules =
 
 module.exports <<< rules <<<
   all: Obj.values rules
+  frequency: frequency

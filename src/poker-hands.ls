@@ -14,7 +14,10 @@ to-string = (hand-cards) ->
   hand-cards * ''
 
 highest-of = (hands=[]) -->
-  hands.0
+  hands |> sort-by value-of |> last
+
+value-of = (hand=[]) ->
+  hand |> sort |> sort-by rules.frequency _, hand |> last
 
 module.exports =
   winner: (...hands) ->
@@ -25,3 +28,5 @@ module.exports =
       |> find (-> not empty it)
       |> highest-of
       |> to-string
+
+module.exports <<< {highest-of, value-of}
