@@ -12,3 +12,6 @@ module.exports = rules =
 
   two-pairs: (hand=[]) ->
     groups hand .2 is 2
+
+  three-of-a-kind: (hand=[]) ->
+    false

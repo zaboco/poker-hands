@@ -32,3 +32,9 @@ describe \rules ->
       expect rules.two-pairs [1 1 2 2 3] .to-be-truthy!
     that '11222 does not have two pairs' ->
       expect rules.two-pairs [1 1 2 2 2] .to-be-falsy!
+
+  describe \three-of-a-kind ->
+    that 'void hand has no 3ok' ->
+      expect rules.three-of-a-kind void .to-be-falsy!
+    that 'empty hand has no 3ok' ->
+      expect rules.three-of-a-kind [] .to-be-falsy!
