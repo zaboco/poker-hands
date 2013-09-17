@@ -1,11 +1,8 @@
 global <<< require \prelude-ls
 require! './rules'
 
-hands-passing = (rule, hands) -->
-  hands |> filter rule
-
 hands-distribution = (hands) ->
-  rules.all |> map hands-passing _, hands
+  rules.all |> map filter _, hands
 
 from-string = (hand-string) ->
   hand-string |> map (-> it / '' |> parse-int)
