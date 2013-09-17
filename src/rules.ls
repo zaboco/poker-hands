@@ -15,8 +15,7 @@ module.exports = rules =
     groups hand .2 is 2
 
   three-of-a-kind: (hand=[]) ->
-    groups-of.3 is 1 and (groups-of.2 ? 0) is 0
-    where groups-of = groups hand
+    (groups hand) === {3: 1, 1: 2}
 
   #straight: (hand=[]) ->
 
