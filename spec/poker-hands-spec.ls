@@ -16,6 +16,14 @@ describe \poker-hands ->
       expect poker-hands.winner \11229 \31346 .to-equal \11229
     that '2pairs with 5 > 2pairs with 4' ->
       expect poker-hands.winner \11225 \11224 .to-equal \11225
+    that '3of-a-kind > 2pairs' ->
+      expect poker-hands.winner \11125 \11224 .to-equal \11125
+    that 'straight > 3of-a-kind' ->
+      expect poker-hands.winner \12345 \11124 .to-equal \12345
+    that 'full > straight' ->
+      expect poker-hands.winner \12345 \11122 .to-equal \11122
+    that '4of-a-kind > full' ->
+      expect poker-hands.winner \33334 \11122 .to-equal \33334
 
   describe \highest-of ->
     that '12349 is higher than 12346' ->
