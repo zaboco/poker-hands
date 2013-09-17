@@ -8,8 +8,9 @@ groups = (a) ->
 
 module.exports = rules =
   pair: (hand=[]) ->
-    groups-of.2 is 1 and (groups-of.3 ? 0) is 0
-    where groups-of = groups hand
+    (groups hand) === {2: 1, 1: 3}
+    # groups-of.2 is 1 and (groups-of.3 ? 0) is 0
+    # where groups-of = groups hand
 
   two-pairs: (hand=[]) ->
     groups hand .2 is 2
