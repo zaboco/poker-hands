@@ -6,9 +6,12 @@ frequency = (el, list) -->
 groups = (a) ->
  unique a |> count-by -> frequency it, a
 
+_is-straight = (hand=[]) ->
+  hand |> sort |> (.map (v, i) -> v - i) |> unique |> (.length) |> (is 1)
+
 rules =
   high-card: (hand=[]) ->
-    groups hand .1 is 5 and not @straight hand
+    groups hand .1 is 5 and not _is-straight hand
 
   pair: (hand=[]) ->
     (groups hand) === {2: 1, 1: 3}
@@ -20,7 +23,7 @@ rules =
     (groups hand) === {3: 1, 1: 2}
 
   straight: (hand=[]) ->
-    hand |> sort |> (.map (v, i) -> v - i) |> unique |> (.length) |> (is 1)
+    _is-straight hand
 
   full-house: (hand=[]) ->
     (groups hand) === {3: 1, 2: 1}
