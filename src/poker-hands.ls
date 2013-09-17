@@ -1,7 +1,7 @@
 global <<< require \prelude-ls
 require! './rules'
 
-hands-distribution = (hands) ->
+hands-by-rank = (hands) ->
   rules.all |> map filter _, hands
 
 from-string = (hand-string) ->
@@ -10,7 +10,7 @@ from-string = (hand-string) ->
 to-string = (hand-cards) ->
   hand-cards * ''
 
-highest-of = (hands=[]) -->
+highest-of-same-rank = (hands=[]) -->
   hands |> sort-by sort-cards |> last
 
 sort-cards = (hand=[]) ->
@@ -20,10 +20,10 @@ module.exports =
   winner: (...hands) ->
     hands
       |> map from-string
-      |> hands-distribution
+      |> hands-by-rank
       |> reverse
       |> find (not) << empty
-      |> highest-of
+      |> highest-of-same-rank
       |> to-string
 
-module.exports <<< {highest-of, sort-cards}
+module.exports <<< {highest-of-same-rank, sort-cards}

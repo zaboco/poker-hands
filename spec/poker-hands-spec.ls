@@ -29,11 +29,11 @@ describe \poker-hands ->
     that '4 of 9s > anything' ->
       expect poker-hands.winner \99991 \11122 \23456 \33356 \44556 \77685 \14678 .to-equal \99991
 
-  describe \highest-of ->
+  describe \highest-of-same-rank ->
     that '12349 is higher than 12346' ->
-      expect poker-hands.highest-of [[1 2 3 4 6] [1 2 3 4 9]] .to-equal [1 2 3 4 9]
+      expect poker-hands.highest-of-same-rank [[1 2 3 4 6] [1 2 3 4 9]] .to-equal [1 2 3 4 9]
     that '22345 is higher than 31146' ->
-      expect poker-hands.highest-of [[2 2 3 4 5] [3 1 1 4 6]] .to-equal [2 2 3 4 5]
+      expect poker-hands.highest-of-same-rank [[2 2 3 4 5] [3 1 1 4 6]] .to-equal [2 2 3 4 5]
 
   describe \sort-cards ->
     that 'sort-cards 31325 is ok' ->
