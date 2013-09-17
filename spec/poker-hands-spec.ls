@@ -20,10 +20,14 @@ describe \poker-hands ->
       expect poker-hands.winner \11125 \11224 .to-equal \11125
     that 'straight > 3of-a-kind' ->
       expect poker-hands.winner \12345 \11124 .to-equal \12345
+    that 'higher straight > lower straight' ->
+      expect poker-hands.winner \12345 \34567 .to-equal \34567
     that 'full > straight' ->
       expect poker-hands.winner \12345 \11122 .to-equal \11122
     that '4of-a-kind > full' ->
       expect poker-hands.winner \33334 \11122 .to-equal \33334
+    that '4 of 9s > anything' ->
+      expect poker-hands.winner \99991 \11122 \23456 \33356 \44556 \77685 \14678 .to-equal \99991
 
   describe \highest-of ->
     that '12349 is higher than 12346' ->
