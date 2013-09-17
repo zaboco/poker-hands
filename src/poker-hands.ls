@@ -14,9 +14,9 @@ to-string = (hand-cards) ->
   hand-cards * ''
 
 highest-of = (hands=[]) -->
-  hands |> sort-by value-of |> last
+  hands |> sort-by sort-cards |> last
 
-value-of = (hand=[]) ->
+sort-cards = (hand=[]) ->
   hand |> sort |> sort-by rules.frequency _, hand |> unique |> reverse
 
 module.exports =
@@ -29,4 +29,4 @@ module.exports =
       |> highest-of
       |> to-string
 
-module.exports <<< {highest-of, value-of}
+module.exports <<< {highest-of, sort-cards}
