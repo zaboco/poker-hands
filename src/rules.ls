@@ -20,8 +20,7 @@ module.exports = rules =
   #straight: (hand=[]) ->
 
   full-house: (hand=[]) ->
-    groups-of.3 is 1 and groups-of.2 is 1
-    where groups-of = groups hand
+    (groups hand) === {3: 1, 2: 1}
 
   four-of-a-kind: (hand=[]) ->
     groups hand .4 is 1
