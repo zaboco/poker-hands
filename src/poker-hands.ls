@@ -1,14 +1,14 @@
 global <<< require \prelude-ls
 require! './rules'
 
-hands-by-rank = (hands) ->
-  rules.all |> map filter _, hands
-
 from-string = (hand-string) ->
   hand-string |> map (-> it / '' |> parse-int)
 
 to-string = (hand-cards) ->
   hand-cards * ''
+
+hands-by-rank = (hands) ->
+  rules.all |> map filter _, hands
 
 highest-of-same-rank = (hands=[]) -->
   hands |> sort-by sort-cards |> last
