@@ -3,6 +3,18 @@ require! '../src/rules'
 that = it
 
 describe \rules ->
+  describe \high-card ->
+    that 'void hand is no high-card' ->
+      expect rules.high-card void .to-equal false
+    that 'empty hand is no high-card' ->
+      expect rules.high-card [] .to-equal false
+    that '11223 is no high-card' ->
+      expect rules.high-card [1 1 2 2 3] .to-equal false
+    that '12349 is high-card' ->
+      expect rules.high-card [1 2 3 4 9] .to-equal true
+    that '12345 is not high-card' ->
+      expect rules.high-card [1 2 3 4 5] .to-equal false
+
   describe \pair ->
     that 'void hand has no pair' ->
       expect rules.pair void .to-equal false
@@ -66,3 +78,4 @@ describe \rules ->
       expect rules.four-of-a-kind [1 1 1 1 3] .to-equal true
     that '11223 has not 4ok' ->
       expect rules.four-of-a-kind [1 1 2 2 3] .to-equal false
+

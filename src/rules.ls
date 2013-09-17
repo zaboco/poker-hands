@@ -6,7 +6,10 @@ frequency = (el, list) -->
 groups = (a) ->
  unique a |> count-by -> frequency it, a
 
-module.exports = rules =
+rules =
+  high-card: (hand=[]) ->
+    groups hand .1 is 5 and not @straight hand
+
   pair: (hand=[]) ->
     (groups hand) === {2: 1, 1: 3}
 
@@ -24,3 +27,6 @@ module.exports = rules =
 
   four-of-a-kind: (hand=[]) ->
     groups hand .4 is 1
+
+module.exports <<< rules <<<
+  all: Obj.values rules
