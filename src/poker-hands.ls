@@ -9,12 +9,10 @@ from-string = (hand-string) ->
   hand-string |> (/ '') |> map to-int
 
 to-int = (card-sign) ->
-  | figures-to-values[card-sign]? => figures-to-values[card-sign]
-  | _ => parse-int card-sign
+  figures-to-values[card-sign] ? parse-int card-sign
 
 from-int = (card-value) ->
-  | values-to-figures[card-value]? => values-to-figures[card-value]
-  | _ => card-value
+  values-to-figures[card-value] ? card-value
 
 to-string = (hand-cards) ->
   hand-cards |> map from-int |> (* '')
