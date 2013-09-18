@@ -4,7 +4,7 @@ frequency = (el, list) -->
   list |> filter (is el) |> (.length)
 
 groups = (a) ->
-  unique a |> count-by -> frequency it, a
+  unique a |> count-by frequency _, a
 
 _is-straight = (hand=[]) ->
   hand |> sort |> (.map (v, i) -> v - i) |> unique |> (.length) |> (is 1)
