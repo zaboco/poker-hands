@@ -6,7 +6,7 @@ figures-to-values = lists-to-obj figures, [10 to 14]
 values-to-figures = lists-to-obj [10 to 14], figures
 
 from-string = (hand-string) ->
-  hand-string |> (/ '') |> map to-int
+  hand-string / '' |> map to-int
 
 to-int = (card-sign) ->
   figures-to-values[card-sign] ? parse-int card-sign
